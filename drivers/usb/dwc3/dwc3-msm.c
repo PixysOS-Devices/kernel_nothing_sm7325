@@ -5045,6 +5045,9 @@ static int dwc3_msm_probe(struct platform_device *pdev)
 
 	mutex_init(&mdwc->suspend_resume_mutex);
 
+	/* set the initial value */
+	mdwc->usb_data_enabled = true;
+
 	mdwc->ss_redriver_node = of_parse_phandle(node, "ssusb_redriver", 0);
 
 	/* set the initial value */
