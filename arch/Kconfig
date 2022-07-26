@@ -552,7 +552,8 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
 	  stack switching.
 
 config SHADOW_CALL_STACK
-	bool "Clang Shadow Call Stack"
+	bool
+	default y
 	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
 	help
 	  This option enables Clang's Shadow Call Stack, which uses a
@@ -570,9 +571,9 @@ config SHADOW_CALL_STACK
 	  stacks that are not currently in use.
 
 config SHADOW_CALL_STACK_VMAP
-	bool "Use virtually mapped shadow call stacks"
-	depends on SHADOW_CALL_STACK
+	bool
 	default y
+	depends on SHADOW_CALL_STACK
 	help
 	  Use virtually mapped shadow call stacks. Selecting this option
 	  provides better stack exhaustion protection, but increases per-thread
